@@ -18,6 +18,12 @@ function App() {
     })
   }
 
+  function deleteTodo (id) {
+    setTodos(currentTodos => {
+      return currentTodos.filter(todo => todo.id !== id)
+    })
+  }
+
   console.log(todos)
 
   return (
@@ -43,7 +49,7 @@ function App() {
                 <input type="checkbox"/>
                 {todo.title}
               </label>
-              <button className='btn btn-danger'>Delete</button>
+              <button className='btn btn-danger' onClick={() => deleteTodo(todo.id)}>Delete</button>
             </li>
             )
           })}
